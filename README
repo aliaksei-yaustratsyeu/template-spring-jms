@@ -1,0 +1,38 @@
+>>>>>>>>>>>  Spring JMS Template  <<<<<<<<<<<<<<<<<<<<
+
+ This project demonstrates Sring JMS usage.
+
+ Building
+
+    - Run on the console under template-spring-jms\ folder the next command:
+        
+                mvn clean compile
+        
+ Running
+ 
+        - Run on the first console under template-spring-jms\ folder the next command:
+        
+                mvn activemq:run
+        
+        - Run on the second console under template-spring-jms\receiver\ folder the next command:
+        
+                mvn exec:java -Dexec.mainClass=com.stepbysteptopro.template.receiver.Receiver
+                
+          You should get the message:    
+                
+                Receiver is running...
+                
+          It means the listener has been run. The listener will listen the messages from queue. 
+          The LoveLetterReceiverServiceImpl service will handle the messages.
+          
+          
+        - Run on the third console under template-spring-jms\sender\ folder the next command:
+          
+                mvn exec:java -Dexec.mainClass=com.stepbysteptopro.template.sender.Sender
+          
+          After that on the second console (receiver's console) you will see the message: 
+          
+                ======= Love letter ===========
+                From: Aliaksei
+                To: Hellen
+                Message: I love you!
